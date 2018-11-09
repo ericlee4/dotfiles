@@ -26,12 +26,11 @@ map <C-j> :bnext<CR>
 map <C-k> :bprev<CR>
 map <C-l> :tabn<CR>
 map <BS> :tabp<CR>
-" inoremap jk <ESC>
 
 " ctrlp
-"let g:ctrlp_max_files = 0
-"let g:ctrlp_max_depth = 100
-"set runtimepath+=~/.vim/plugins/ctrlp.vim/
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 100
+set runtimepath+=~/.vim/plugins/ctrlp.vim/
 
 filetype plugin indent on
 runtime macros/matchit.vim
