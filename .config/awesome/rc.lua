@@ -8,7 +8,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
+-- local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -57,8 +57,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -69,7 +69,7 @@ awful.layout.layouts = {
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    --awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -110,7 +110,7 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
 
 -- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- Keyboard map indicator and switcher
@@ -330,15 +330,16 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "d", function() menubar.show() end,
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "d", function() awful.spawn("dmenu_run") end,
               {description = "show the menubar", group = "launcher"}),
 
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -q set Master 2dB+ unmute") end,
-            {description = "raise volume", group = "audio"}),
-  awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -q set Master 2dB- unmute") end,
-            {description = "lower volume", group = "audio"}),
-  awful.key({}, "XF86AudioMute", function() awful.spawn("amixer -q set Master toggle") end,
-            {description = "mute volume", group = "audio"})
+              awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -q set Master 2dB+ unmute") end,
+                        {description = "raise volume", group = "volume control"}),
+              awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -q set Master 2dB- unmute") end,
+                        {description = "lower volume", group = "volume control"}),
+              awful.key({}, "XF86AudioMute", function() awful.spawn("amixer -q set Master toggle") end,
+                        {description = "raise volume", group = "volume control"})
 )
 
 clientkeys = gears.table.join(
@@ -456,7 +457,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     size_hints_honor = false
      }
     },
 
@@ -503,6 +505,7 @@ client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
+    awful.client.setslave(c)
 
     if awesome.startup and
       not c.size_hints.user_position
