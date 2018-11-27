@@ -67,7 +67,7 @@ awful.layout.layouts = {
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -330,8 +330,15 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey }, "d", function() menubar.show() end,
+              {description = "show the menubar", group = "launcher"}),
+
+  awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -q set Master 2dB+ unmute") end,
+            {description = "raise volume", group = "audio"}),
+  awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -q set Master 2dB- unmute") end,
+            {description = "lower volume", group = "audio"}),
+  awful.key({}, "XF86AudioMute", function() awful.spawn("amixer -q set Master toggle") end,
+            {description = "mute volume", group = "audio"})
 )
 
 clientkeys = gears.table.join(
