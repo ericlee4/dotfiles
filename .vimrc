@@ -25,12 +25,14 @@ set wildignore+=*.class,*.jar,*.swp
 map <C-j> :bnext<CR>
 map <C-k> :bprev<CR>
 map <C-l> :tabn<CR>
-map <BS> :tabp<CR>
+map <C-h> :tabp<CR>
 
 " ctrlp
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 100
+let g:ctrlp_working_path_mode = "a"
 set runtimepath+=~/.vim/plugins/ctrlp.vim/
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 
 filetype plugin indent on
 runtime macros/matchit.vim
