@@ -331,7 +331,7 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     -- awful.key({ modkey }, "p", function() menubar.show() end,
-    awful.key({ modkey }, "d", function() awful.spawn("dmenu_run") end,
+    awful.key({ modkey }, "d", function() awful.spawn("rofi -modi drun -show drun") end,
               {description = "show the menubar", group = "launcher"}),
 
               awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -q set Master 2dB+ unmute") end,
@@ -467,6 +467,7 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
+          "mumble",
         },
         class = {
           "Arandr",
