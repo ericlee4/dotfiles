@@ -462,30 +462,28 @@ awful.rules.rules = {
      }
     },
 
-    -- Floating clients.
-    { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-        },
-        class = {
-          "Arandr",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Wpa_gui",
-          "pinentry",
-          "veromix",
-          "xtightvncviewer"},
+    {
+       rule = {
+          instance = "feh"
+       },
+       properties = {
+          floating = true
+       }
+    },
 
-        name = {
+    { rule_any = {
+       instance = {
+          "copyq",  -- Includes session name in class.
+       },
+       class = {
+          "Arandr",
+       },
+       name = {
           "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
+       },
+       role = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
+       }
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
