@@ -480,6 +480,7 @@ awful.rules.rules = {
        },
        name = {
           "Event Tester",  -- xev.
+          "Style Studio"
        },
        role = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
