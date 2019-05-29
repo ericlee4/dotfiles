@@ -17,11 +17,13 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set nowrapscan
 
 set mouse=a
 set tabstop=3 softtabstop=0 expandtab shiftwidth=3 smarttab
 set splitright
-set wildignore+=*.class,*.jar,*.swp
+set wildignore+=*.class,*.swp
+
 map <C-j> :bnext<CR>
 map <C-k> :bprev<CR>
 map <C-l> :tabn<CR>
