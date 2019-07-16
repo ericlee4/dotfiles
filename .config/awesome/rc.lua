@@ -469,16 +469,28 @@ awful.rules.rules = {
        role = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
        }
-      }, properties = { floating = true }},
+      }, properties = { floating = true }
+   },
 
-    -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+   -- Add titlebars to normal clients and dialogs
+   -- Ignore intellij - titlebars cause dialogs to incrementally
+   -- move down and to the right every time they're opened. The
+   -- position must be getting restored by intellij but not
+   -- factoring in the added height of the titlebars (and maybe
+   -- 1px width)
+   {
+      rule_any = {
+         type = {
+            "normal", "dialog"
+         },
+      }, 
+      except = {
+         class = "jetbrains-idea"
+      },
+      properties = { 
+         titlebars_enabled = true 
+      }
+   }
 }
 -- }}}
 
