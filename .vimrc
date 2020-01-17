@@ -2,8 +2,9 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-" line numbers
+" relative line numbers
 set number
+set rnu
 
 " dark bg
 set background=dark
@@ -12,7 +13,7 @@ set background=dark
 colorscheme hybrid
 
 " gvim font
-set guifont=Source\ Code\ Pro\ 12
+set guifont=Source\ Code\ Pro\ 11
 
 " syntax highlighting
 syntax enable
@@ -58,9 +59,6 @@ let g:ctrlp_max_depth = 100
 
 " the directory of the current file, unless it is a subdirectory of the cwd
 let g:ctrlp_working_path_mode = "a"
-
-" add plugin
-set runtimepath+=~/.vim/plugins/ctrlp.vim/
 
 " ignore files and dirs in ctrlp
 set wildignore+=*.class,*.swp,*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*

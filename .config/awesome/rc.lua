@@ -447,27 +447,22 @@ awful.rules.rules = {
      }
     },
 
-    {
-       rule = {
-          instance = "feh"
-       },
-       properties = {
-          floating = true
-       }
-    },
-
     { rule_any = {
        instance = {
+          "feh"
        },
        class = {
           "Arandr",
+          "inetsoft-gui-Designer",
+          "inetsoft-runner-Launcher",
+          "NetBeans Platform 8.0"
        },
        name = {
           "Event Tester",  -- xev.
           "Style Studio"
        },
        role = {
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          "pop-up",
        }
       }, properties = { floating = true }
    },
