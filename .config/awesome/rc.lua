@@ -265,6 +265,10 @@ globalkeys = gears.table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "l", function () awful.screen.focus_bydirection("right") end,
               {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey, "Control", "Shift" }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+              {description = "increase the number of master clients", group = "layout"}),
+    awful.key({ modkey, "Control", "Shift" }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+              {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -453,6 +457,7 @@ awful.rules.rules = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
           "mumble",
+          "deluge"
         },
         class = {
           "Arandr",
