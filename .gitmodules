@@ -4,3 +4,9 @@
 [submodule "vim-hybrid"]
 	path = vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule ".vim/pack/ctrlp/start/ctrlp.vim"]
+	path = .vim/pack/ctrlp/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule ".vim/pack/vim-surround/start/vim-surround"]
+	path = .vim/pack/vim-surround/start/vim-surround
+	url = https://github.com/tpope/vim-surround

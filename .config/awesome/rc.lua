@@ -451,42 +451,47 @@ awful.rules.rules = {
      }
     },
 
-    -- Floating clients.
     { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
+       instance = {
+          "feh",
           "mumble",
           "deluge"
-        },
-        class = {
-          "Arandr",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Wpa_gui",
-          "pinentry",
-          "veromix",
-          "xtightvncviewer"},
-
-        name = {
+       },
+       class = {
+:         "Arandr",
+          "inetsoft-gui-Designer",
+          "inetsoft-runner-Launcher",
+          "NetBeans Platform 8.0"
+       },
+       name = {
           "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
-      }, properties = { floating = true }},
+          "Style Studio"
+       },
+       role = {
+          "pop-up",
+       }
+      }, properties = { floating = true }
+   },
 
-    -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+   -- Add titlebars to normal clients and dialogs
+   -- Ignore intellij - titlebars cause dialogs to incrementally
+   -- move down and to the right every time they're opened. The
+   -- position must be getting restored by intellij but not
+   -- factoring in the added height of the titlebars (and maybe
+   -- 1px width)
+   {
+      rule_any = {
+         type = {
+            "normal", "dialog"
+         },
+      }, 
+      except = {
+         class = "jetbrains-idea"
+      },
+      properties = { 
+         titlebars_enabled = true 
+      }
+   }
 }
 -- }}}
 
