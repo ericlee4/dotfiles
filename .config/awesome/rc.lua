@@ -458,7 +458,7 @@ awful.rules.rules = {
           "deluge"
        },
        class = {
-:         "Arandr",
+          "Arandr",
           "inetsoft-gui-Designer",
           "inetsoft-runner-Launcher",
           "NetBeans Platform 8.0"
