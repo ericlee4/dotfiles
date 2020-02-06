@@ -13,7 +13,7 @@ set background=dark
 colorscheme hybrid
 
 " gvim font
-set guifont=Source\ Code\ Pro\ 11
+set guifont=Source\ Code\ Pro\ 9
 
 " syntax highlighting
 syntax enable
@@ -41,6 +41,9 @@ set tabstop=3 expandtab shiftwidth=3 smarttab
 
 " v split to the right
 set splitright
+
+" enable select mode for mouse
+set selectmode=mouse
 
 " buffer/tab shortcuts
 map <C-j> :bnext<CR>
