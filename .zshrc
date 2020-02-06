@@ -2,32 +2,25 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000000
 SAVEHIST=10000000
-setopt extendedglob
 unsetopt beep
 unsetopt sharehistory
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/eric/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 autoload -U promptinit
+fpath=(~/.zsh/gradle-completion $fpath)
 promptinit
 prompt redhat
-alias ls='ls -hF --color=auto'                 # classify files in colour
-alias ll='ls -la'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias tmux='tmux -2'
 
 zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
-precmd() {
-   print -Pn "\e]0; %d\a";
-}
-
+# kill jetty
 killserver() {
    pid=`jps -l | grep -m1 jetty | awk '{print $1}'`
 
@@ -39,13 +32,14 @@ killserver() {
    fi
 }
 
+# don't nest ranger multi level
+ranger() {
+   if [ -z $RANGER_LEVEL ]; then
+      /usr/bin/ranger "$@"
+   else
+      exit
+   fi
+}
+
 ulimit -n 4096
 source /usr/share/nvm/init-nvm.sh
-
-# powerline config
-powerline-daemon -q
-source /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# has to be at end of file
-# https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

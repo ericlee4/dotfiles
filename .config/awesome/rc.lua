@@ -323,6 +323,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "d", function() awful.spawn("rofi -modi drun -show drun") end,
               {description = "show the menubar", group = "launcher"}),
 
+              awful.key({}, "Print", function() awful.spawn.with_shell("maim -s | xclip -selection clipboard -t image/png") end,
+                        {description = "Take a screenshot", group = "launcher"}),
               awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -q set Master 2dB+ unmute") end,
                         {description = "raise volume", group = "volume control"}),
               awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -q set Master 2dB- unmute") end,
