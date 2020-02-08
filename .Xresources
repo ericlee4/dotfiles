@@ -17,11 +17,12 @@ xterm*metaSendsEscape: true
 
 ! Ctrl-h fix
 xterm*ptyInitialErase: true
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+XTerm.vt100.locale: true
 
 !cursor size
 Xcursor.size: 12
-
-XTerm.vt100.locale: true
 
 ! terminal colors ------------------------------------------------------------
 ! tangoesque scheme
