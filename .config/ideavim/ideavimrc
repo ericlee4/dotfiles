@@ -1,6 +1,8 @@
 source ~/.vimrc
+set ideajoin
 set surround
 set easymotion
+set exchange
 set so=5
 map <Leader>v :action Tool_External Tools_vim<CR>
 map <S-c-e> :action RecentFiles<CR>
